@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import userSchemaModel from "../models/user.model.js";
 
+dotenv.config();
+
 const key = rs.generate();
 const token = jwt.sign(payload, key);
 
