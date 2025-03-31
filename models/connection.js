@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const url = "mongodb://127.0.0.1:27017/map-app";
+dotenv.config();
 
-mongoose.connect(url);
+const url = process.env.MONGO_URI;
 
-console.log("✅ MongoDB Connected");
+mongoose
+  .connect(url)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.error("❌ MongoDB Connection Error:", err));
