@@ -32,3 +32,19 @@ export const login = async (req, res) => {
     res.status(401).json({ error: "Invalid credentials" });
   }
 };
+
+export const getUser = async (req, res) => {
+  try {
+    const staticUser = {
+      _id: 1,
+      username: "john_doe",
+      email: "john.doe@example.com",
+      role: "user",
+      createdAt: new Date(),
+    };
+
+    res.status(200).json({ status: true, user: staticUser });
+  } catch (error) {
+    res.status(500).json({ status: false, error: "Internal Server Error" });
+  }
+};
