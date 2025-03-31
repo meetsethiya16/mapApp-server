@@ -1,8 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import dotenv from "dotenv";
 
-const PORT = 3001;
+dotenv.config();
+
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -15,6 +18,6 @@ import userRouter from "./routes/user.router.js";
 
 app.use("/", userRouter);
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`✅ Server invoked at http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
