@@ -5,9 +5,6 @@ import userSchemaModel from "../models/user.model.js";
 
 dotenv.config();
 
-const key = rs.generate();
-const token = jwt.sign(payload, key);
-
 export const save = async (req, res) => {
   const userList = await userSchemaModel.find();
   const _id = userList.length === 0 ? 1 : userList[userList.length - 1]._id + 1;
@@ -26,6 +23,8 @@ export const save = async (req, res) => {
 };
 
 export const login = async (req, res) => {
+  const key = rs.generate();
+  const token = jwt.sign(payload, key);
   const conditionObj = { ...req.body };
   const userList = await userSchemaModel.find(conditionObj);
 
