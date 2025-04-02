@@ -9,7 +9,6 @@ export const save = async (req, res) => {
   const userDetail = {
     ...req.body,
     _id: _id,
-    auth: "isAuthenticated",
     info: Date(),
   };
   try {
