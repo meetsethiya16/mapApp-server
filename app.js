@@ -13,7 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
-// Import Routes
 import userRouter from "./routes/user.router.js";
 import cityRouter from "./routes/city.router.js";
 
