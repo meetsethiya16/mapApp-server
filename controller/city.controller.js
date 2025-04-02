@@ -16,3 +16,15 @@ export const save = async (req, res) => {
     res.status(500).json({ status: false, message: error.message });
   }
 };
+
+export const fetchCities = async (req, res) => {
+  try {
+    const cities = await citySchemaModel.find(
+      {},
+      "cityName latitude longitude"
+    );
+    res.status(200).json(cities);
+  } catch (error) {
+    res.status(500).json({ status: false, message: "Error fetching cities" });
+  }
+};
