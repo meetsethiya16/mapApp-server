@@ -15,8 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 import userRouter from "./routes/user.router.js";
+import cityRouter from "./routes/city.router.js";
 
 app.use("/", userRouter);
+app.use("/dashboard", cityRouter);
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
