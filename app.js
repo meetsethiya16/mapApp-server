@@ -14,7 +14,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: "https://darling-crumble-fe3659.netlify.app",
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        "https://darling-crumble-fe3659.netlify.app",
+        "http://localhost:5173", // For local testing
+      ];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
