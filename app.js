@@ -11,16 +11,19 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const corsOptions = {
-  origin: [
-    "http://localhost:3001",
-    "https://darling-crumble-fe3659.netlify.app/",
-  ], // Add allowed origins
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
-  credentials: true, // Allow cookies/auth headers
-};
+// const corsOptions = {
+//   origin: [
+//     "http://localhost:4173",
+//     "http://localhost:5173",
+//     "https://darling-crumble-fe3659.netlify.app/",
+//   ], // Add allowed origins
+//   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+//   credentials: true, // Allow cookies/auth headers
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use(cors());
 
 import userRouter from "./routes/user.router.js";
 import cityRouter from "./routes/city.router.js";
